@@ -1,5 +1,5 @@
 import { Time } from "@angular/common";
-import { Route } from "@angular/router";
+import { Route } from "./route";
 import { Company } from "./company";
 import { Stop } from "./stop";
 
@@ -8,6 +8,7 @@ export interface ETA {
   route: Route,
   dir: string,
   seq: number,
+  service_type?: number,
   stop: Stop,
   dest_en: string,
   dest_tc: string,
@@ -17,4 +18,5 @@ export interface ETA {
   rmk_en: string,
   rmk_tc: string,
   rmk_sc: string,
+  data_timestamp: Time | string,
 }

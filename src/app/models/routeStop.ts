@@ -1,11 +1,12 @@
-import { Route } from "@angular/router";
 import { Company } from "./company";
+import { Route } from "./route";
 import { Stop } from "./stop";
 
 export interface RouteStop {
   co: Company,
   route: Route,
-  dir: string,
+  bound: string,
+  service_type?: string,
   seq: number,
   stop: Stop,
 }
