@@ -3,7 +3,7 @@ import { Route } from "@angular/router";
 import { Company } from "./company";
 import { Stop } from "./stop";
 
-export interface Arrival {
+export interface ETA {
   co: Company,
   route: Route,
   dir: string,

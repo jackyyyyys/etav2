@@ -1,4 +1,4 @@
-export const api_url = {
+export const ctb_nwfb = {
   base: "https://rt.data.gov.hk",
   company: "/transport/citybus-nwfb/company/{company_id}",
   route: "/transport/citybus-nwfb/route/{company_id}/{route}",
