@@ -1,4 +1,5 @@
-import { Company } from "./ctb_nwfb/company";
+import { Company } from "./company";
+import { ETA } from "./eta";
 
 export interface Route {
   co: Company,
@@ -11,4 +12,5 @@ export interface Route {
   dest_en: string,
   dest_tc: string,
   dest_sc: string,
+  etas?: ETA[],
 }
