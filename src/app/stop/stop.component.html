@@ -1,1 +1,9 @@
-<p>stop works!</p>
+<h1 *ngIf="stop">{{ stop.name_tc }}</h1>
+<div *ngIf="stop">
+  <div *ngFor="let route of stop.routes">
+      <h2>{{ route.route }} {{ route.dest_tc }}</h2>
+      <div *ngFor="let eta of route.etas">
+        <h6>{{ eta.eta }} {{ eta.dest_tc }} {{ eta.rmk_tc }}</h6>
+      </div>
+  </div>
+</div>
