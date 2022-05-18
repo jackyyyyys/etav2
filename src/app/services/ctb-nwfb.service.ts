@@ -27,6 +27,17 @@ export class CtbNwfbService {
     }))
   }
 
+  get_all_routes(company_id: string) {
+    let url = ctb_nwfb.base
+              + ctb_nwfb.all_routes
+                .replace("{company_id}", company_id)
+    console.log(url);
+    return this.http.get(url)
+    .pipe(map((response: any) => {
+      return response.data;
+    }))
+  }
+
   /**
    *
    * @param company_id
@@ -73,7 +84,7 @@ export class CtbNwfbService {
               + ctb_nwfb.route_stop
                 .replace("{company_id}", company_id)
                 .replace("{route}", route)
-                .replace("direction", direction);
+                .replace("{direction}", direction);
     console.log(url);
     return this.http.get(url)
     .pipe(map((response: any) => {

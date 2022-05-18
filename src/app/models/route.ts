@@ -1,8 +1,9 @@
 import { Company } from "./company";
 import { ETA } from "./eta";
+import { Stop } from "./stop";
 
 export interface Route {
-  co: Company,
+  co: string,
   route: string,
   bound?: string,
   service_type?: string,
@@ -12,5 +13,6 @@ export interface Route {
   dest_en: string,
   dest_tc: string,
   dest_sc: string,
+  stops?: Stop[],
   etas?: ETA[],
 }

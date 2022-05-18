@@ -24,7 +24,6 @@ export class StopComponent implements OnInit {
     private kmb_lwb_service: KmbLwbService,
   ) {
 
-
     this.ctb_nwfb_service.get_stop(this.stop_id)
     .subscribe((stop: Stop) => {
       this.stop = stop;

@@ -13,6 +13,10 @@ export class KmbLwbService {
 
   constructor(private http: HttpClient) {}
 
+  /**
+   * no
+   * @returns
+   */
   get_route_list() {
     let url = kmb_lwb.base + kmb_lwb.route_list;
     console.log(url);
