@@ -2,9 +2,11 @@
 <div>
   <p *ngFor="let stop of route.stops">
     {{stop.stop}} {{stop.name_tc}}
-    <!-- <div *ngFor="let eta of stop.etas">
-      <h6>{{ eta.eta.toString().substring(11, 19) }} {{ eta.dest_tc }} {{ eta.rmk_tc }} </h6>
-    </div> -->
+    <app-stop
+      [stop_id]="stop.stop"
+      [company_id]="route.co"
+      [route]="route.route"
+    ></app-stop>
 </div>
 
 <!-- !!!!!!!!!!!!!!!!!!!! can proper attach data to object, but issue with displaying with nested ngfor -->

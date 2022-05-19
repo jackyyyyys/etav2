@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { CtbNwfbService } from '../services/ctb-nwfb.service';
 import { KmbLwbService } from '../services/kmb-lwb.service';
 
@@ -13,11 +13,11 @@ import { ETA } from '../models/eta';
 })
 export class StopComponent implements OnInit {
 
+  @Input() stop_id = '';
+  @Input() company_id = '';
+  @Input() route = '';
   stop!: Stop;
   routes!: Route[];
-  stop_id: string = "001576";
-  route: string = "101";
-  company_id: string = "NWFB";
 
   constructor(
     private ctb_nwfb_service: CtbNwfbService,
@@ -27,7 +27,6 @@ export class StopComponent implements OnInit {
     this.ctb_nwfb_service.get_stop(this.stop_id)
     .subscribe((stop: Stop) => {
       this.stop = stop;
-      this.stop.routes = [];
     })
 
     this.ctb_nwfb_service.get_route(this.company_id ,this.route)
@@ -62,7 +61,14 @@ export class StopComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.ctb_nwfb_service.get_eta_ONCE(this.company_id, this.stop_id, this.route)
 
+    //
+    // this.ctb_nwfb_service.get_eta_ONCE(route.co.co, route.route, this.stop.stop)
+    .subscribe((etas: ETA[]) => {
+      this.stop.routes!.find(r => r.route = this.route)!.etas = etas;
+      console.table(etas);
+    })
   }
 
 }
